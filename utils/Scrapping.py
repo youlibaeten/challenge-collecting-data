@@ -34,8 +34,10 @@ def get_data(url):
     )
     print("Furnished: " + str(json_data["transaction"]["sale"]["isFurnished"]))
     print("Open fire: " + str(json_data["property"]["fireplaceExists"]))
-    print("Terrace" + str(json_data["property"]["hasTerrace"]))
+    print("Terrace: " + str(json_data["property"]["hasTerrace"]))
+    print("Terrace surface: " + str(json_data["property"]["terraceSurface"]))
     print("Garden : " + str(json_data["property"]["hasGarden"]))
+    print("Garden surface : " + str(json_data["property"]["gardenSurface"]))
     print(
         "Surface of the land: " + str(json_data["property"]["land"]["surface"])
     )
