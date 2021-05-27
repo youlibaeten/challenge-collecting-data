@@ -12,11 +12,11 @@ class Property:
     def get_data(self):
         r = requests.get(self.url)
         soup = BeautifulSoup(r.content, "lxml")
-        url_data = str(soup.select("#container-main-content div script")[0])
+        url_data = str(
+            soup.select_one("#container-main-content div  script").string
+        )
         url_data = (
-            url_data.replace("</script>", "")
-            .replace('<script type="text/javascript">', "")
-            .replace("window.classified = ", "")
+            url_data.replace("window.classified = ", "")
             .replace(" ", "")
             .replace(";", "")
         )
