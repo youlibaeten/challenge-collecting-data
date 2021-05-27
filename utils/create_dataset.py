@@ -23,7 +23,8 @@ Be able to work as group.
 
 The Mission:
 ___________
-The real estate company "ImmoEliza" wants to create a machine learning model to make price predictions on real estate sales in Belgium.
+The real estate company "ImmoEliza" wants to create a machine learning model
+to make price predictions on real estate sales in Belgium.
 You must therefore create a dataset that holds the following columns :
 
 Locality
@@ -64,7 +65,9 @@ No empty row. If you are missing information, set the value to None.
 # 		        Import
 # -----------------------------------------------
 
-import pandas as pd
+from typing import List
+
+import pandas as pd  # type: ignore
 
 # ----------------------------------------------------
 # 		        Globales
@@ -87,24 +90,24 @@ Creating a csv file
 """
 # Build dataframe
 
-locality = []
-type_property = []
-subtype_property = []
-price = []
-type_sale = []
-number_rooms = []
-area = []
-has_equiped_kitchen = []
-is_furnished = []
-has_open_fire = []
-has_terrace = []
-terrace_surface = []
-has_garden = []
-garden_surface = []
-land_surface = []
-facade_number = []
-has_swimmingpool = []
-building_state = []
+locality: List[str] = []
+type_property: List[str] = []
+subtype_property: List[str] = []
+price: List[int] = []
+type_sale: List[str] = []
+number_rooms: List[int] = []
+area: List[int] = []
+has_equiped_kitchen: List[int] = []
+is_furnished: List[int] = []
+has_open_fire: List[int] = []
+has_terrace: List[int] = []
+terrace_surface: List[int] = []
+has_garden: List[int] = []
+garden_surface: List[int] = []
+land_surface: List[int] = []
+facade_number: List[int] = []
+has_swimmingpool: List[int] = []
+building_state: List[str] = []
 
 
 data_dict = {
