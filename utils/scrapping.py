@@ -33,7 +33,10 @@ urls.append(
     "https://www.immoweb.be/fr/annonce/maison/a-vendre\
         /nivelles/1400/9346951?searchId=60af45e77ea2c"
 )
-# urls.append("https://www.imm4oweb.be/fr/annonce/appartement/a-vendre/gand/9000/9346747?searchId=60af45e77ea2c")
+urls.append(
+    "https://www.imm4oweb.be/fr/annonce/appartement/a-vendre\
+        /gand/9000/9346747?searchId=60af45e77ea2c"
+)
 urls.append(
     "https://www.immoweb.be/fr/annonce/appartement/a-vendre\
         /gand/9000/9346707?searchId=60af45e77ea2c"
@@ -57,9 +60,12 @@ urls.append(
 
 
 def test_thread(url, property_list):
-    property = Property(url)
-    property.get_data()
-    property_list.append(property)
+    try:
+        property = Property(url)
+        property.get_data()
+        property_list.append(property)
+    except Exception as ex:
+        print(ex)
 
 
 def process_urls(urls):
@@ -80,3 +86,10 @@ def process_urls(urls):
 min {math.floor(time_in_seconds % 60)} seconds --- \
         \nNumber of threads: {len(threads)}"
     )
+
+    return property_list
+
+
+list = []
+list = process_urls(urls)
+print(len(list))
