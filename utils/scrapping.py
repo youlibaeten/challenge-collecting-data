@@ -60,9 +60,12 @@ urls.append(
 
 
 def test_thread(url, property_list):
-    property = Property(url)
-    property.get_data()
-    property_list.append(property)
+    try:
+        property = Property(url)
+        property.get_data()
+        property_list.append(property)
+    except Exception as ex:
+        print(ex)
 
 
 def process_urls(urls):
@@ -83,3 +86,10 @@ def process_urls(urls):
 min {math.floor(time_in_seconds % 60)} seconds --- \
         \nNumber of threads: {len(threads)}"
     )
+
+    return property_list
+
+
+list = []
+list = process_urls(urls)
+print(len(list))

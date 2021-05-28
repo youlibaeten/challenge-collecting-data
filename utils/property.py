@@ -51,4 +51,4 @@ class Property:
                 "condition"
             ]
         except Exception as ex:
-            print(ex)
+            raise ex
