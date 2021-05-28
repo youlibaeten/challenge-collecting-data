@@ -33,7 +33,10 @@ urls.append(
     "https://www.immoweb.be/fr/annonce/maison/a-vendre\
         /nivelles/1400/9346951?searchId=60af45e77ea2c"
 )
-# urls.append("https://www.imm4oweb.be/fr/annonce/appartement/a-vendre/gand/9000/9346747?searchId=60af45e77ea2c")
+urls.append(
+    "https://www.imm4oweb.be/fr/annonce/appartement/a-vendre\
+        /gand/9000/9346747?searchId=60af45e77ea2c"
+)
 urls.append(
     "https://www.immoweb.be/fr/annonce/appartement/a-vendre\
         /gand/9000/9346707?searchId=60af45e77ea2c"
