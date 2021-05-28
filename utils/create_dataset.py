@@ -90,48 +90,54 @@ Creating a csv file
 """
 # Build dataframe
 
-locality: List[str] = []
-type_property: List[str] = []
-subtype_property: List[str] = []
-price: List[int] = []
-type_sale: List[str] = []
-number_rooms: List[int] = []
-area: List[int] = []
-has_equiped_kitchen: List[int] = []
-is_furnished: List[int] = []
-has_open_fire: List[int] = []
-has_terrace: List[int] = []
-terrace_surface: List[int] = []
-has_garden: List[int] = []
-garden_surface: List[int] = []
-land_surface: List[int] = []
-facade_number: List[int] = []
-has_swimmingpool: List[int] = []
-building_state: List[str] = []
+
+def initiate_panda():
+    locality: List[str] = []
+    type_property: List[str] = []
+    subtype_property: List[str] = []
+    price: List[int] = []
+    type_sale: List[str] = []
+    number_rooms: List[int] = []
+    area: List[int] = []
+    has_equiped_kitchen: List[int] = []
+    is_furnished: List[int] = []
+    has_open_fire: List[int] = []
+    has_terrace: List[int] = []
+    terrace_surface: List[int] = []
+    has_garden: List[int] = []
+    garden_surface: List[int] = []
+    land_surface: List[int] = []
+    facade_number: List[int] = []
+    has_swimmingpool: List[int] = []
+    building_state: List[str] = []
+
+    data_dict = {
+        "Locality": locality,
+        "Type of property": type_property,  # House/apartment
+        "Subtype of property": subtype_property,
+        # Bungalow, Chalet, Mansion,..
+        "Price": price,
+        "Type of sale": type_sale,  # Exclusion of life sale
+        "Number of rooms": number_rooms,
+        "Area": area,
+        "Fully equipped kitchen": has_equiped_kitchen,  # Yes/No
+        "Furnished": is_furnished,  # Yes/No
+        "Open fire": has_open_fire,  # Yes/No
+        "Terrace": has_terrace,  # Yes/No
+        "Area_terrace": terrace_surface,  # if Yes
+        "Garden": has_garden,  # Yes/No
+        "Area_garden": garden_surface,  # if Yes
+        "Surface of the land": land_surface,
+        "Number of facades": facade_number,
+        "Swimming pool": has_swimmingpool,  # Yes/No
+        "State of the building": building_state,
+    }  # New, to be renovated, ...
+
+    dataframe_house = pd.DataFrame(data_dict)
+
+    return dataframe_house
 
 
-data_dict = {
-    "Locality": locality,
-    "Type of property": type_property,  # House/apartment
-    "Subtype of property": subtype_property,  # Bungalow, Chalet, Mansion,..
-    "Price": price,
-    "Type of sale": type_sale,  # Exclusion of life sale
-    "Number of rooms": number_rooms,
-    "Area": area,
-    "Fully equipped kitchen": has_equiped_kitchen,  # Yes/No
-    "Furnished": is_furnished,  # Yes/No
-    "Open fire": has_open_fire,  # Yes/No
-    "Terrace": has_terrace,  # Yes/No
-    "Area_terrace": terrace_surface,  # if Yes
-    "Garden": has_garden,  # Yes/No
-    "Area_garden": garden_surface,  # if Yes
-    "Surface of the land": land_surface,
-    "Number of facades": facade_number,
-    "Swimming pool": has_swimmingpool,  # Yes/No
-    "State of the building": building_state,
-}  # New, to be renovated, ...
-
-dataframe_house = pd.DataFrame(data_dict)
-
-
-dataframe_house.to_csv("dataframe2.csv")
+def export_dataframe(data_dict):
+    dataframe = pd.DataFrame(data_dict)
+    dataframe.to_csv("dataframe2.csv")
