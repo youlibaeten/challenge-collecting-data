@@ -2,6 +2,7 @@ import math
 import threading
 import time
 
+from utils.create_dataset import export_dataframe
 from utils.property import Property
 
 urls = []
@@ -63,7 +64,27 @@ def test_thread(url, property_list):
     try:
         property = Property(url)
         property.get_data()
-        property_list.append(property)
+        data_dict = {
+            "Locality": property.locality,
+            "Type of property": property.property_type,
+            "Subtype of property": property.property_subtype,
+            "Price": property.price,
+            "Type of sale": property.sale_type,
+            "Number of rooms": property.rooms,
+            "Area": property.area,
+            "Fully equipped kitchen": property.is_kitchen_equipped,
+            "Furnished": property.is_furnished,
+            "Open fire": property.has_open_fire,
+            "Terrace": property.has_terrace,
+            "Area_terrace": property.terrace_surface,
+            "Garden": property.has_garden,
+            "Area_garden": property.garden_surface,
+            "Surface of the land": property.land_surface,
+            "Number of facades": property.facade_number,
+            "Swimming pool": property.has_swimming_pool,
+            "State of the building": property.property_state,
+        }
+        property_list.append(data_dict)
     except Exception as ex:
         print(ex)
 
@@ -86,6 +107,8 @@ def process_urls(urls):
 min {math.floor(time_in_seconds % 60)} seconds --- \
         \nNumber of threads: {len(threads)}"
     )
+
+    export_dataframe(property_list)
 
     return property_list
 
